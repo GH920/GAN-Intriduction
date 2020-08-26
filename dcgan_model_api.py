@@ -175,7 +175,6 @@ class DCGAN(Model):
         ########################### Train the Generator ###########################
         # Get the latent vector
         random_latent_vectors = tf.random.normal(shape=(batch_size, self.latent_dim))
-        fake_labels = tf.random.uniform((batch_size,), 0, n_classes)
         with tf.GradientTape() as tape:
             # Generate fake images using the generator
             generated_images = self.generator(random_latent_vectors, training=True)
